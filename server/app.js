@@ -7,7 +7,7 @@ const PRIORITIES = ['高', '中', '低'];
 
 function normalizeTitle(value) {
   if (typeof value !== 'string') return '';
-  return value.trim().replace(/\\s+/g, ' ').slice(0, 160);
+  return value.trim().replace(/\s+/g, ' ').slice(0, 160);
 }
 
 function normalizePriority(value) {
@@ -106,7 +106,7 @@ export function createApp() {
   const distDir = path.resolve(process.cwd(), 'dist');
   if (fs.existsSync(distDir)) {
     app.use(express.static(distDir));
-    app.get(/^\\/(?!api\\/).*/, (req, res) => res.sendFile(path.join(distDir, 'index.html')));
+    app.get(/^\/(?!api\/).*/, (req, res) => res.sendFile(path.join(distDir, 'index.html')));
   }
 
   app.use('/api', (req, res) => res.status(404).json({ error: '接口不存在', code: 'NO_ROUTE' }));
