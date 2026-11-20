@@ -1,0 +1,19 @@
+# 依赖
+node_modules/
+dist/
+
+# 环境变量（绝对不能提交，里面有密钥）
+.env
+.env.local
+.env.*.local
+
+# 本地演示数据
+data/
+
+# 部署 / 系统文件
+.vercel/
+.idea/
+.vscode/
+.DS_Store
+*.log
+npm-debug.log*
