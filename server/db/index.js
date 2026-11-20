@@ -25,8 +25,8 @@ export function describeConfig() {
   const url = (process.env.SUPABASE_URL || '').trim();
   const key = (process.env.SUPABASE_ANON_KEY || '').trim();
   return {
-    supabaseUrl: url ? url.replace(/\\/\\/[^.]+/, '//') : '',
-    urlLooksValid: /^https:\\/\\/[a-z0-9-]+\\.supabase\\.(co|com)$/i.test(url),
+    supabaseUrl: url ? url.replace(/\/\/[^.]+/, '//') : '',
+    urlLooksValid: /^https:\/\/[a-z0-9-]+\.supabase\.(co|com)$/i.test(url),
     keyPresent: Boolean(key),
     keyPrefixValid: key ? /^sb_publishable_/.test(key) || /^eyJ/.test(key) : false
   };
